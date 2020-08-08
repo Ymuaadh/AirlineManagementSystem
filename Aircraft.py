@@ -4,3 +4,4 @@ class Aircraft:
         self.registrationNo=registrationNo
         self.types=types
         self.name=name
+        

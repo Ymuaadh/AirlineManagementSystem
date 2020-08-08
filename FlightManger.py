@@ -1,8 +1,10 @@
 from flight import Flight
-from aircraftmanager import AircraftManager
 class FlightManager():
     Flights = []
-    acmgr=AircraftManager()
+    
+    def __init__(self,acmgr):
+        self.acmgr=acmgr
+
     def list(self):
         for avalFlight in self.Flights:
             self.show(avalFlight)

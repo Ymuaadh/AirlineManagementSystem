@@ -3,9 +3,10 @@ from FlightManger import FlightManager
 from BookingManger import BookingManager
 from passangerManager import PassagerManager
 aircraftManager = AircraftManager()
-flightManager = FlightManager()
-BookingManager =BookingManager()
+flightManager = FlightManager(aircraftManager)
 PassagerManager = PassagerManager()
+BookingManager =BookingManager(flightManager,PassagerManager)
+
 def mainMenu():
     print("Enter 0 to exit")
     print("Enter 1 to Manage Aircrafts")
@@ -99,7 +100,8 @@ def handleManageBookingsAction(action):
         TimeOfFlight = input("Enter Time of flight?")
         destination = input("Enter destination?")
         avalFlight = input("Enter the Flight number")
-        response =BookingManager.create(destination,TimeOfFlight,TypeOfFlight,SitNumber,name,Price,avalFlight)
+        PhoneNo = input("Enter the Phone number")
+        response =BookingManager.create(destination,TimeOfFlight,TypeOfFlight,SitNumber,name,Price,avalFlight,PhoneNo)
         if response :
             print("Congrats! Your Booking ",name," is created successfully")
         else:

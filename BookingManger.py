@@ -3,18 +3,23 @@ from passangerManager import PassagerManager
 from FlightManger import FlightManager  
 class BookingManager():
     Bookings = []
-    flightmg= FlightManager()
-    passangermg = PassagerManager()
+    def __init__(self,flightmg,passangermg):
+        self.flightmg=flightmg
+        self.passangermg=passangermg
     def list(self):
         for info in self.Bookings:
             self.show(info)
     def show(self,info):
         print(info.name,"  ",info.SitNumber," ",info.Price," ",info.TypeOfFlight," ",info.TimeOfFlight," ",info.destination)
-    def create(self,destination,TimeOfFlight,TypeOfFlight,Price,SitNumber,name,flightno):
+    def create(self,destination,TimeOfFlight,TypeOfFlight,Price,SitNumber,name,flightno,PhoneNo):
         avalFlight = self.flightmg.find(flightno)
+        avalpassanger = self.passangermg.find(PhoneNo)
         
-        if avalFlight == None:
-            print("Flight no available")
+        if avalpassanger == None:
+            print("Passanger Not available")
+            return False
+        elif avalFlight == None:
+            print("Flight Not available")
             return False
         
         else:
@@ -35,7 +40,7 @@ class BookingManager():
         info.TimeOfFlight = TimeOfFlight
         info.TypeOfFlight = TypeOfFlight
         info.Price = Price
-
+   
 
 
 
