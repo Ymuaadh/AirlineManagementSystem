@@ -1,6 +1,5 @@
 from booking import Booking
-from passangerManager import PassagerManager
-from FlightManger import FlightManager  
+
 class BookingManager():
     Bookings = []
     def __init__(self,flightmg,passangermg):
@@ -18,14 +17,15 @@ class BookingManager():
         if avalpassanger == None:
             print("Passanger Not available")
             return False
-        elif avalFlight == None:
-            print("Flight Not available")
-            return False
-        
         else:
-            info = Booking(destination,TimeOfFlight,TypeOfFlight,SitNumber,name,avalFlight)
-            self.Bookings.append(info)
-            return True
+            if avalFlight == None:
+                print("Flight Not available")
+                return False
+        
+            else:
+                info = Booking(destination,TimeOfFlight,TypeOfFlight,SitNumber,name,avalFlight)
+                self.Bookings.append(info)
+                return True
     def find(self,SitNumber):
         for info in self.Bookings:
             if info.SitNumber == SitNumber:

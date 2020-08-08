@@ -105,7 +105,7 @@ def handleManageBookingsAction(action):
         if response :
             print("Congrats! Your Booking ",name," is created successfully")
         else:
-            print("name",name, " not available")
+            print("name",name," not available")
     elif action == "3":
         name = input("Enter name? ")                                      
         destination = input("Enter destination?")
