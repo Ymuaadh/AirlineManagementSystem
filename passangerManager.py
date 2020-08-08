@@ -31,7 +31,3 @@ class PassagerManager:
     
 
 
-manager= PassagerManager()
-manager.create("ola","12","olaniteolalekan@gmail.com","07038386817","Ogun")
-manager.update("ola","12","olaniteolalekan@gmail.com","07052003532","Ogun")
-manager.list()
