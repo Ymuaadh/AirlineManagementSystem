@@ -13,6 +13,8 @@ def mainMenu():
     print("Enter 2 to Manage Flights")
     print("Enter 3 to Manage Bookings")
     print("Enter 4 to Manage passangers")
+
+    
 def showSubMenu(option):
     if option == "1":
         showManageAircraftsMenu()
@@ -62,7 +64,7 @@ def handleManagePassangerAction(action):
         PhoneNo = input("Enter passangers Phone number? ")
         Email= input("Enter Email?")
         Address= input("Enter Address?")
-        PassagerManager.create(name,age,Email,PhoneNo,Address)
+        PassagerManager.create(name,age,PhoneNo,Email,Address)
         print("Congrats!", name, "is a passanger on a flight")
     elif action == "3":
         name =input("Enter Name of Passanger? ")
@@ -70,7 +72,7 @@ def handleManagePassangerAction(action):
         PhoneNo = input("Enter passangers Phone number? ")
         Email= input("Enter Email?")
         Address= input("Enter Address?")
-        PassagerManager.update(name,age,Email,PhoneNo,Address)
+        PassagerManager.update(name,age,PhoneNo,Email,Address)
         print(PhoneNo,"updated")
     elif action == "4":
         PhoneNo = input("Enter passangers Phone number? ")
@@ -131,15 +133,15 @@ def handleManageFlightMenuAction(action):
         flightno =input("Enter Flight No? ")
         takeofftime =input("Enter takeoffTime? ")
         takepoint = input("Enter takepoint? ")
-        aircraftno = input("Enter AircraftNo?")
-        destination = input("Enter your destination?")
-        landingtime = input("Enter landing time?")
+        registrationNo = input("Enter registartioNo ? ")
+        destination = input("Enter your destination? ")
+        landingtime = input("Enter landing time? ")
         price = input("Enter price?")
-        response =flightManager.create(flightno,takeofftime,takepoint,aircraftno,destination,landingtime,price)
+        response =flightManager.create(flightno,takeofftime,takepoint,registrationNo,destination,landingtime,price)
         if response :
             print("Congrats! Your Flight ",flightno," is created successfully")
         else:
-            print("Aircraft ", aircraftno, " not available")
+            print("Aircraft ", registrationNo, " not available")
     elif action =="3":
         takeofftime = input("Enter takeoffTime? ")
         takepoint = input("Enter takepoint? ")
